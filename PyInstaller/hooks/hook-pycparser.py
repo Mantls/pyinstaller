@@ -19,4 +19,8 @@
 # This hook tells pyinstaller about those hidden imports, avoiding the
 # possibility of such runtime failures.
 
-hiddenimports = ['pycparser.lextab', 'pycparser.yacctab']
+from PyInstaller.utils.hooks import collect_all
+
+datas, binaries, hiddenimports = collect_all('pycparser')
+
+print ("Used custom hook for pycparser")
